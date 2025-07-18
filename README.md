@@ -34,3 +34,24 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Gemini API Key Setup
+
+1. Create a file named `.env.local` in the `chat` directory (next to `package.json`).
+2. Add the following line to `.env.local`:
+
+```
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+Replace `your_gemini_api_key_here` with your actual Gemini API key from Google AI Studio or Google Cloud.
+
+## Usage
+
+- Start the development server:
+
+```
+npm run dev
+```
+
+- Open [http://localhost:3000](http://localhost:3000) in your browser to use the chatbot UI powered by Gemini!
