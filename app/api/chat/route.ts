@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Add a system prompt to always answer as a teacher for elementary school students
-  const systemPrompt = "小学生に分かりやすく教える先生です。難しい言葉は使わず、やさしく・丁寧に・簡単な言葉で説明してください。";
+  const systemPrompt = "あなたは小学生に分かりやすく教える先生です。難しい言葉は使わず、やさしく・丁寧に・簡単な言葉で説明してください。";
   const prompt = [systemPrompt, ...(messages as Message[]).map((m) => `${m.role}: ${m.content}`)].join("\n");
 
   const response = await fetch(

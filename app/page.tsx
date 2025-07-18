@@ -8,7 +8,7 @@ export default function ChatPage() {
     {
       role: "system",
       content:
-        "あなたは小学生に分かりやすく教える先生です。難しい言葉は使わず、やさしく・丁寧に・簡単な言葉で説明してください。",
+        "小学生に分かりやすく教える先生です。難しい言葉は使わず、やさしく・丁寧に・簡単な言葉で説明してください。",
     },
   ]);
   const [input, setInput] = useState("");
