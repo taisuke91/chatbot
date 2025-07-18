@@ -2,11 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = "edge";
 
+//Messagaの型を定義
 type Message = {
   role: string;
   content: string;
 };
 
+//POSTリクエストを受け取る
 export async function POST(req: NextRequest) {
   const { messages } = await req.json();
   const apiKey = process.env.GEMINI_API_KEY;
@@ -16,6 +18,17 @@ export async function POST(req: NextRequest) {
 
   // Add a system prompt to always answer as a teacher for elementary school students
   const systemPrompt = "あなたは小学生に分かりやすく教える先生です。難しい言葉は使わず、やさしく・丁寧に・簡単な言葉で説明してください。";
+
+  
+  //AIに渡す会話履歴を1つのテキストにまとめるためのコード
+  //あなたは親切なAIです。
+  // user: こんにちは
+  // assistant: こんにちは、どうしましたか？
+  // user: 東大に行きたいです
+  // assistant: 東大に行きたいですね。それはすごい目標です。
+  // user: どうやったらいいですか？
+  // assistant: 東大に行きたい場合は、まずは学校の勉強を頑張りましょう。そして、志望校の過去問を解いて、どのような問題が出るかを確認しましょう。その後、志望校の対策をしていきましょう。
+  // (今までの会話履歴をまとめたもの)
   const prompt = [systemPrompt, ...(messages as Message[]).map((m) => `${m.role}: ${m.content}`)].join("\n");
 
   const response = await fetch(
