@@ -5,7 +5,11 @@ import { useState } from "react";
 
 export default function ChatPage() {
   const [messages, setMessages] = useState([
-    { role: "system", content: "How can I help you today? (Powered by Gemini AI)" },
+    {
+      role: "system",
+      content:
+        "あなたは小学生に分かりやすく教える先生です。難しい言葉は使わず、やさしく・丁寧に・簡単な言葉で説明してください。",
+    },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
